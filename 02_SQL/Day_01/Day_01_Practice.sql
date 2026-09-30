@@ -1,70 +1,189 @@
--- SQL — Day 1 Practice
--- Started: 28 September 2026
--- Continued: 29 September 2026
--- Status: In Progress
+-- SQL — Day 1 | 30 Sep 2026
+-- Topic: SQL Basics, SELECT, WHERE, Comparison Operators, AND, OR
 
 
--- 1. Display a number
+-- ==========================================
+-- 1. Basic SELECT
+-- ==========================================
+
 SELECT 10;
 
-
--- 2. Display another number
 SELECT 25;
 
-
--- 3. Perform a simple calculation
 SELECT 10 + 5;
 
-
--- 4. Display text
 SELECT 'Hello';
 
-
--- 5. Independent text practice
 SELECT 'My SQL journey';
 
 
--- 6. Show available databases
+-- ==========================================
+-- 2. View Databases
+-- ==========================================
+
 SHOW DATABASES;
 
 
--- 7. Select the world database
+-- ==========================================
+-- 3. Select the World Database
+-- ==========================================
+
 USE world;
 
 
--- 8. Show tables in the selected database
+-- ==========================================
+-- 4. View Tables
+-- ==========================================
+
 SHOW TABLES;
 
 
--- 9. Display the first 5 rows from the city table
+-- ==========================================
+-- 5. Display Rows from City
+-- ==========================================
+
 SELECT *
-FROM city
+FROM City
 LIMIT 5;
 
-
--- 10. Display the first 3 rows from the city table
 SELECT *
-FROM city
+FROM City
 LIMIT 3;
 
 
--- 11. Select one column
+-- ==========================================
+-- 6. Select Specific Columns
+-- ==========================================
+
 SELECT Name
-FROM city
+FROM City
 LIMIT 5;
 
-
--- 12. Select multiple columns
 SELECT Name, Population
-FROM city
+FROM City
+LIMIT 5;
+
+SELECT Name, District
+FROM City
+LIMIT 3;
+
+
+-- ==========================================
+-- 7. WHERE with Text
+-- ==========================================
+
+SELECT Name, District
+FROM City
+WHERE District = 'Kabol';
+
+
+-- ==========================================
+-- 8. WHERE with Greater Than
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population > 1000000;
+
+
+-- ==========================================
+-- 9. WHERE with Less Than
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population < 500000
 LIMIT 5;
 
 
--- Important lessons:
--- SQL statements normally end with a semicolon (;), not a colon (:).
--- Multiple columns are separated using commas.
--- Make sure the intended query is selected/current in MySQL Workbench
--- before executing it.
+-- ==========================================
+-- 10. Greater Than or Equal To
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population >= 1000000
+LIMIT 5;
 
 
--- SQL Day 1 will continue in the next SQL session.
+-- ==========================================
+-- 11. Less Than or Equal To
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population <= 200000
+LIMIT 5;
+
+
+-- ==========================================
+-- 12. Not Equal To
+-- ==========================================
+
+SELECT Name, District
+FROM City
+WHERE District != 'Kabol'
+LIMIT 5;
+
+
+-- ==========================================
+-- 13. AND
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population > 500000
+AND Population < 1000000
+LIMIT 5;
+
+
+-- ==========================================
+-- 14. Independent AND Practice
+-- ==========================================
+
+SELECT Name, Population
+FROM City
+WHERE Population >= 200000
+AND Population <= 300000
+LIMIT 5;
+
+
+-- ==========================================
+-- 15. OR
+-- ==========================================
+
+SELECT Name, District
+FROM City
+WHERE District = 'Kabol'
+OR District = 'Herat';
+
+
+-- ==========================================
+-- 16. Final Day 1 Challenge
+-- ==========================================
+
+SELECT Name, District, Population
+FROM City
+WHERE Population >= 500000
+AND Population <= 1000000
+LIMIT 5;
+
+
+-- ==========================================
+-- Day 1 Quick Reference
+-- ==========================================
+
+-- SELECT  -> choose what information to display
+-- FROM    -> choose the table
+-- WHERE   -> filter rows
+-- LIMIT   -> limit the number of returned rows
+
+-- =   -> equal to
+-- !=  -> not equal to
+-- >   -> greater than
+-- <   -> less than
+-- >=  -> greater than or equal to
+-- <=  -> less than or equal to
+
+-- AND -> both conditions must be true
+-- OR  -> at least one condition must be true
